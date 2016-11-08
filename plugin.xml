@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="tff-plugin-cmb"
+        version="0.1.0"
+        xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <name>TffCMB</name>
+
+    <js-module name="TffCMB" src="www/tffcmb.js">
+        <clobbers target="TffCMB" />
+    </js-module>
+
+    <platform name="ios">
+        <config-file target="config.xml" parent="/widget">
+            <feature name="TffCMB">
+                <param name="ios-package" value="TffCMBPlugin" />
+                <param name="onload" value="true" />
+            </feature>
+        </config-file>
+
+        <config-file target="*-Info.plist" parent="CFBundleURLTypes">
+            <array>
+                <dict>
+                    <key>CMBPublishkey</key>
+                    <string></string>
+                </dict>
+            </array>
+        </config-file>
+
+        <framework src="src/ios/lib/cmbkeyboard.framework" custom="true" />
+    </platform>
+
+</plugin>
+
+jsonRequestData={"version":"1.0","charset":"UTF-8","sign":"f7813bec85bc107480d8d0c4f436094f9199d7723fdef20c05a7d6d8330986f3","signType":"SHA-256","reqData":{"agrNo":"12345678901234567890","amount":0.01,"branchNo":"0028","cardType":"","clientIP":"127.0.0.1","date":"20161107","dateTime":"20161107172237","expireTimeSpan":"60","lat":"","lon":"","merchantNo":"000289","merchantSerialNo":"20161107172237","mobile":"","orderNo":"2217579999","payNoticePara":"","payNoticeUrl":"https:\/\/www.itisw.com\/put","returnUrl":"http:\/\/payment.jack.toursforfun.com\/return\/cmb","riskLevel":"","signNoticePara":"","signNoticeUrl":"http:\/\/payment.jack.toursforfun.com\/sign\/notify","userID":""}}
