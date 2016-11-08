@@ -1,5 +1,7 @@
 #import <Cordova/CDV.h>
 
 @interface TffCMBPlugin : CDVPlugin
-- (void) pay:(CDVInvokedUrlCommand*)command;
+
+- (void) test:(CDVInvokedUrlCommand*)command;
+
 @end

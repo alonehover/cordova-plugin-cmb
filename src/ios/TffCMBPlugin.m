@@ -2,6 +2,7 @@
 #import <Cordova/CDV.h>
 
 @implementation TffCMBPlugin
+
 - (void)test:(CDVInvokedUrlCommand*)command
 {
     UIAlertView *alertview = [[UIAlertView alloc] initWithTitle:@"标题" 

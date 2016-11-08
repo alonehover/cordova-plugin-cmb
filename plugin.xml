@@ -31,5 +31,3 @@
     </platform>
 
 </plugin>
-
-jsonRequestData={"version":"1.0","charset":"UTF-8","sign":"f7813bec85bc107480d8d0c4f436094f9199d7723fdef20c05a7d6d8330986f3","signType":"SHA-256","reqData":{"agrNo":"12345678901234567890","amount":0.01,"branchNo":"0028","cardType":"","clientIP":"127.0.0.1","date":"20161107","dateTime":"20161107172237","expireTimeSpan":"60","lat":"","lon":"","merchantNo":"000289","merchantSerialNo":"20161107172237","mobile":"","orderNo":"2217579999","payNoticePara":"","payNoticeUrl":"https:\/\/www.itisw.com\/put","returnUrl":"http:\/\/payment.jack.toursforfun.com\/return\/cmb","riskLevel":"","signNoticePara":"","signNoticeUrl":"http:\/\/payment.jack.toursforfun.com\/sign\/notify","userID":""}}
