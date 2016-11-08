@@ -28,10 +28,6 @@
         </config-file>
 
         <framework src="src/ios/lib/cmbkeyboard.framework" custom="true" />
-
-        <header-file src="src/ios/TffCMBPlugin.h" />
-	    <source-file src="src/ios/TffCMBPlugin.m" />
-
     </platform>
 
 </plugin>
