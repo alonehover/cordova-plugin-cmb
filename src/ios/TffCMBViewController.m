@@ -5,8 +5,6 @@
 //  Created by TFF on 2016/11/10.
 //
 //
-
-//#import <Foundation/Foundation.h>
 #import "TffCMBPlugin.h"
 #import "TffCMBViewController.h"
 #import <cmbkeyboard/CMBWebKeyboard.h>
@@ -47,6 +45,11 @@
 
 }
 
+- (void)loadURLRequest:(NSMutableURLRequest*)requesturl
+{
+    _requestUrl = requesturl;
+}
+
 - (void)reloadWebView
 {
     [_webView loadRequest: _requestUrl];
@@ -59,9 +62,9 @@
     }
     [super viewDidLoad];
     
-    [self.view setBackgroundColor:[UIColor whiteColor]];
+//    [self.view setBackgroundColor:[UIColor whiteColor]];
     
-    [self.navigationController.navigationBar setBackgroundColor:[UIColor lightGrayColor]];
+    [self.navigationController.navigationBar setBarTintColor:[UIColor whiteColor]];
     
     [self.navigationItem setTitle:@"招行一网通"];
     
