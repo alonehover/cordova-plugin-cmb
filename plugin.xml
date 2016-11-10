@@ -22,7 +22,7 @@
             <array>
                 <dict>
                     <key>CMBPublishkey</key>
-                    <string></string>
+                    <string>ZXDp2xXtqKStAXkYPTg/8vTw0YZkEzOOxW5uUQ95M0P9oMybxbTxZiDh/qlelCTYy8S+y/8XEdr/4fxuBtj+FxAg5ND970foOAJouADNUexrg3x72J/T9+S3t0+o2J2nBnbELxwKWeAWgGRPJAgL5TK+iZAv4r9+M85Yd2Spc4XWjAYolSAHqE5uecwSliVwSzu5GOVyUFhCv7l/v3O8U4tmMg0+LHUdt/95Qyf9HnlB/42G7ySBdTcj87Ry0XvFIUJmVIjFvj/OZrQXkQX+D/89ZlFJuV42jevz0MVXhKE7tXc0TrnEi+nSXqBvk4Ryuj1ZiIOry6UEL68i4Kgnag==</string>
                 </dict>
             </array>
         </config-file>
@@ -31,6 +31,50 @@
 
         <header-file src="src/ios/TffCMBPlugin.h" />
 	    <source-file src="src/ios/TffCMBPlugin.m" />
+
+        <resource-file src="src/ios/SecreteKeyBoard/kb_bg_line.imageset" target="SecreteKeyBoard/kb_bg_line.imageset"/>
+
+        <resource-file src="src/ios/SecreteKeyBoard/kb_bg1.imageset" target="SecreteKeyBoard/kb_bg1.imageset"/>
+
+        <resource-file src="src/ios/SecreteKeyBoard/kb_bg2.imageset" target="SecreteKeyBoard/kb_bg2.imageset"/>
+
+        <resource-file src="src/ios/SecreteKeyBoard/key_fat_normal.imageset" target="SecreteKeyBoard/key_fat_normal.imageset"/>
+
+        <resource-file src="src/ios/SecreteKeyBoard/key_icon_del.imageset" target="SecreteKeyBoard/key_icon_del.imageset"/>
+
+        <resource-file src="src/ios/SecreteKeyBoard/key_normal.imageset" target="SecreteKeyBoard/key_normal.imageset"/>
+
+        <resource-file src="src/ios/SecreteKeyBoard/key_num_column_1_last_row_pressed.imageset" target="SecreteKeyBoard/key_num_column_1_last_row_pressed.imageset"/>
+
+        <resource-file src="src/ios/SecreteKeyBoard/key_num_column_1_last_row.imageset" target="SecreteKeyBoard/key_num_column_1_last_row.imageset"/>
+
+        <resource-file src="src/ios/SecreteKeyBoard/key_num_column_1_pressed.imageset" target="SecreteKeyBoard/key_num_column_1_pressed.imageset"/>
+
+        <resource-file src="src/ios/SecreteKeyBoard/key_num_column_1.imageset" target="SecreteKeyBoard/key_num_column_1.imageset"/>
+
+        <resource-file src="src/ios/SecreteKeyBoard/key_num_column_2_last_row_pressed.imageset" target="SecreteKeyBoard/key_num_column_2_last_row_pressed.imageset"/>
+
+        <resource-file src="src/ios/SecreteKeyBoard/key_num_column_2_last_row.imageset" target="SecreteKeyBoard/key_num_column_2_last_row.imageset"/>
+
+        <resource-file src="src/ios/SecreteKeyBoard/key_num_column_2_pressed.imageset" target="SecreteKeyBoard/key_num_column_2_pressed.imageset"/>
+
+        <resource-file src="src/ios/SecreteKeyBoard/key_num_column_2.imageset" target="SecreteKeyBoard/key_num_column_2.imageset"/>
+
+        <resource-file src="src/ios/SecreteKeyBoard/key_num_column_3_last_row_pressed.imageset" target="SecreteKeyBoard/key_num_column_3_last_row_pressed.imageset"/>
+
+        <resource-file src="src/ios/SecreteKeyBoard/key_num_column_3_last_row.imageset" target="SecreteKeyBoard/key_num_column_3_last_row.imageset"/>
+
+        <resource-file src="src/ios/SecreteKeyBoard/key_num_column_3_pressed.imageset" target="SecreteKeyBoard/key_num_column_3_pressed.imageset"/>
+
+        <resource-file src="src/ios/SecreteKeyBoard/key_num_column_3.imageset" target="SecreteKeyBoard/key_num_column_3.imageset"/>
+
+        <resource-file src="src/ios/SecreteKeyBoard/key_pressed_fat_middle.imageset" target="SecreteKeyBoard/key_pressed_fat_middle.imageset"/>
+
+        <resource-file src="src/ios/SecreteKeyBoard/key_pressed_leftside.imageset" target="SecreteKeyBoard/key_pressed_leftside.imageset"/>
+
+        <resource-file src="src/ios/SecreteKeyBoard/key_pressed_middle.imageset" target="SecreteKeyBoard/key_pressed_middle.imageset"/>
+
+        <resource-file src="src/ios/SecreteKeyBoard/key_pressed_rightside.imageset" target="SecreteKeyBoard/key_pressed_rightside.imageset"/>
 
     </platform>
 
