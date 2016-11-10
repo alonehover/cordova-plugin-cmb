@@ -31,6 +31,10 @@
 
         <header-file src="src/ios/TffCMBPlugin.h" />
 	    <source-file src="src/ios/TffCMBPlugin.m" />
+	    <header-file src="src/ios/TffCMBViewController.h" />
+	    <source-file src="src/ios/TffCMBViewController.m" />
+        
+
 
         <resource-file src="src/ios/SecreteKeyBoard/kb_bg_line.imageset" target="SecreteKeyBoard/kb_bg_line.imageset"/>
 
