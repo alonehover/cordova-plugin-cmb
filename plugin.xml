@@ -21,7 +21,7 @@
         <config-file target="*-Info.plist" parent="CFBundleURLTypes">
             <array>
                 <dict>
-                    <key>CMBPublishkey</key>
+                    <key>CMBPublickey</key>
                     <string>ZXDp2xXtqKStAXkYPTg/8vTw0YZkEzOOxW5uUQ95M0P9oMybxbTxZiDh/qlelCTYy8S+y/8XEdr/4fxuBtj+FxAg5ND970foOAJouADNUexrg3x72J/T9+S3t0+o2J2nBnbELxwKWeAWgGRPJAgL5TK+iZAv4r9+M85Yd2Spc4XWjAYolSAHqE5uecwSliVwSzu5GOVyUFhCv7l/v3O8U4tmMg0+LHUdt/95Qyf9HnlB/42G7ySBdTcj87Ry0XvFIUJmVIjFvj/OZrQXkQX+D/89ZlFJuV42jevz0MVXhKE7tXc0TrnEi+nSXqBvk4Ryuj1ZiIOry6UEL68i4Kgnag==</string>
                 </dict>
             </array>
