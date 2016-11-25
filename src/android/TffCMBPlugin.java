@@ -1,4 +1,4 @@
-package org.apache.cordova.tffconfig;
+package org.apache.cordova.tffcmb;
 
 import org.apache.cordova.CordovaWebView;
 import org.apache.cordova.CallbackContext;

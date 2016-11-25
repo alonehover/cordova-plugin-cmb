@@ -16,8 +16,8 @@
 
     <platform name="android">
         <config-file target="res/xml/config.xml" parent="/*">
-            <feature name="TffConfig" >
-                <param name="android-package" value="org.apache.cordova.tffconfig.TffConfig"/>
+            <feature name="TffCMB" >
+                <param name="android-package" value="org.apache.cordova.tffcmb.TffCMB"/>
             </feature>
         </config-file>
 
