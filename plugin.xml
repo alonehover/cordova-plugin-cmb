@@ -21,7 +21,7 @@
             </feature>
         </config-file>
 
-        <source-file src="src/android/TffCMBPlugin.java" target-dir="src/org/apache/cordova/tffcmb" />
+        <source-file src="src/android/TffCMB.java" target-dir="src/org/apache/cordova/tffcmb" />
         <source-file src="src/android/libs/cmbkeyboard.jar" target-dir="libs"/>
     </platform>
 
