@@ -6,9 +6,23 @@
 
     <name>TffCMB</name>
 
+    <engines>
+        <engine name="cordova" version=">=3.5.0"/>
+    </engines>
+
     <js-module name="TffCMB" src="www/tffcmb.js">
         <clobbers target="TffCMB" />
     </js-module>
+
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="TffConfig" >
+                <param name="android-package" value="org.apache.cordova.tffconfig.TffConfig"/>
+            </feature>
+        </config-file>
+
+        <source-file src="src/android/TffConfig.java" target-dir="src/org/apache/cordova/tffconfig" />
+    </platform>
 
     <platform name="ios">
         <config-file target="config.xml" parent="/widget">
