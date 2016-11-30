@@ -24,6 +24,7 @@
         </config-file>
 
         <source-file src="src/android/TffCMB.java" target-dir="src/org/apache/cordova/tffcmb" />
+        <source-file src="src/android/TffCMBActivity.java" target-dir="src/org/apache/cordova/tffcmb" />
         <source-file src="src/android/libs/cmbkeyboard.jar" target-dir="libs"/>
 
         <source-file src="src/android/res/drawable/cmbkb_backspace_dark_icon.png" target-dir="res/drawable"/>
