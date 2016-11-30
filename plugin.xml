@@ -62,7 +62,7 @@
         <source-file src="src/android/res/xml/cmbkb_number_with_dot.xml" target-dir="res/xml"/>    
         <source-file src="src/android/res/xml/cmbkb_number_with_x.xml" target-dir="res/xml"/>    
         <source-file src="src/android/res/xml/cmbkb_qwerty.xml" target-dir="res/xml"/>    
-        <source-file src="src/android/res/xml/symbols.xml" target-dir="res/xml"/>    
+        <source-file src="src/android/res/xml/cmbkb_symbols.xml" target-dir="res/xml"/>    
     
         <source-file src="src/android/res/anim/cmbkb_push_bottom_in.xml" target-dir="res/anim"/>    
         <source-file src="src/android/res/anim/cmbkb_push_bottom_out.xml" target-dir="res/anim"/>    
