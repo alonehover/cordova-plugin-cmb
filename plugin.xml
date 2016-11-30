@@ -54,7 +54,7 @@
         <source-file src="src/android/res/values/cmbkb_strings.xml" target-dir="res/values"/>    
         <source-file src="src/android/res/values/cmbkb_styles.xml" target-dir="res/values"/>    
 
-        <source-file src="src/android/res/values-zh/cmbkb_strings" target-dir="res/values-zh"/>   
+        <source-file src="src/android/res/values-zh/cmbkb_strings.xml" target-dir="res/values-zh"/>   
 
         <source-file src="src/android/res/xml/cmbkb_number.xml" target-dir="res/xml"/>    
         <source-file src="src/android/res/xml/cmbkb_number_symbols.xml" target-dir="res/xml"/>    
