@@ -12,6 +12,4 @@
 @interface TffCMBViewController : UIViewController
 - (void)loadUrl:(NSString*)outerURL;
 - (void)loadURLRequest:(NSURLRequest*)requesturl;
-- (void)loadParam: (NSString*)outerParam
 @end
-

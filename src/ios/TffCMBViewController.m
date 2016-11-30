@@ -26,7 +26,7 @@
     if (self) {
         // Custom initialization
     }
-    
+
     return self;
 }
 
@@ -35,11 +35,11 @@
     return YES;
 }
 
-- (void)loadUrl:(NSString *)outerURL {
-    
+- (void)loadUrl:(NSString *)outerURL setParam:(NSString *) loadParam{
+
     NSURL *url = [NSURL URLWithString: outerURL];
-    NSString *body = [NSString stringWithFormat: @"trans_id=%@&user_id=%@", @"20001109140755406098",@"32"];
-    _requestUrl = [NSMutableURLRequest requestWithURL:url];
+    NSString *body = [NSString stringWithFormat: @"jsonRequestData=%@", loadParam];
+    _requestUrl = [NSMutableURLRequest requestWithURL: url];
     [_requestUrl setHTTPMethod: @"POST"];
     [_requestUrl setHTTPBody: [body dataUsingEncoding: NSUTF8StringEncoding]];
 
@@ -56,26 +56,26 @@
 }
 
 - (void)viewDidLoad {
-    
+
     if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7) {
         self.edgesForExtendedLayout = UIRectEdgeNone;
     }
     [super viewDidLoad];
-    
+
 //    [self.view setBackgroundColor:[UIColor whiteColor]];
-    
+
     [self.navigationController.navigationBar setBarTintColor:[UIColor whiteColor]];
-    
+
     [self.navigationItem setTitle:@"招行一网通"];
-    
+
     UIBarButtonItem *barBackBtn=[[UIBarButtonItem alloc]initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(btnClicked)];
     self.navigationItem.leftBarButtonItem = barBackBtn;
-    
+
     _webView = [[UIWebView alloc] init];
     _webView.frame = self.view.frame;
     [self.view addSubview:_webView];
     _webView.delegate = self; // self.wvDelegateColletion;
-    
+
 }
 
 - (void)btnClicked {
@@ -88,9 +88,9 @@
 {
     [super viewWillAppear:animated];
     [[CMBWebKeyboard shareInstance] hideKeyboard];
-    
+
     [self reloadWebView];
-    
+
 }
 - (void)viewWillDisappear:(BOOL)animated
 {
@@ -106,26 +106,26 @@
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    
-    
+
+
 }
 
 static BOOL FROM = FALSE;
 - (BOOL)webView:(UIWebView *)_webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
-    
+
     if ([request.URL.host isCaseInsensitiveEqualToString:@"cmbls"]) {
         CMBWebKeyboard *secKeyboard = [CMBWebKeyboard shareInstance];
         [secKeyboard showKeyboardWithRequest:request];
         secKeyboard.webView = _webView;
-        
+
         UITapGestureRecognizer* myTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
         [self.view addGestureRecognizer:myTap]; //这个可以加到任何控件上,比如你只想响应WebView，我正好填满整个屏幕
         myTap.delegate = self;
         myTap.cancelsTouchesInView = NO;
         return NO;
     }
-    
+
     //
     return YES;
 }
@@ -136,7 +136,7 @@ static BOOL FROM = FALSE;
 
 -(void)handleSingleTap:(UITapGestureRecognizer *)sender{
     [[CMBWebKeyboard shareInstance] hideKeyboard];
-    
+
 }
 
 
@@ -148,7 +148,7 @@ static BOOL FROM = FALSE;
 - (void)webViewDidStartLoad:(UIWebView *)webView
 {
     if (FROM) {
-        
+
         return;
     }
 }
@@ -166,7 +166,7 @@ static BOOL FROM = FALSE;
 - (void)dealloc
 {
     [[CMBWebKeyboard shareInstance] hideKeyboard];
-    
+
 }
 
 @end

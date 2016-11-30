@@ -16,13 +16,12 @@
     // NSString *getURL = @"http://payment.jack.toursforfun.com/forward/cmb";
     NSString *getURL = self.url;
     if ([getURL hasPrefix:@"http"] == NO) {//考虑输入的网 址中不是以http开头的情况
-        getURL =[ @"http://" stringByAppendingString:getURL];
+        getURL =[ @"http://" stringByAppendingString: getURL];
     }
-    [vc loadUrl: getURL];
-    [vc loadParam: self.jsonRequestData]
+    [vc loadUrl: getURL setParam: self.jsonRequestData];
     
     UINavigationController *naVC = [[UINavigationController alloc]initWithRootViewController:vc];
-    
+
     [self.viewController presentViewController:naVC animated:YES completion:^{
         NSLog(@"模态成功");
     }];
