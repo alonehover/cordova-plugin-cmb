@@ -32,7 +32,7 @@ public class TffCMBActivity extends Activity implements View.OnClickListener {
     private  String url;
     private String jsonRequestData;
 
-    private AppClientDao appClientDao =new AppClientDao();
+    // private AppClientDao appClientDao =new AppClientDao();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -147,15 +147,15 @@ public class TffCMBActivity extends Activity implements View.OnClickListener {
         }
     }
 
-    class  MyThread extends Thread{
-        public void run(){
-            try {
-                appClientDao.postCMB_1(trans_id,user_id);
+    // class  MyThread extends Thread{
+    //     public void run(){
+    //         try {
+    //             appClientDao.postCMB_1(url, jsonRequestData);
 
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-    }
+    //         } catch (IOException e) {
+    //             e.printStackTrace();
+    //         }
+    //     }
+    // }
 
 }
