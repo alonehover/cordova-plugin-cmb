@@ -26,7 +26,7 @@
         <source-file src="src/android/TffCMB.java" target-dir="src/org/apache/cordova/tffcmb" />
         <source-file src="src/android/libs/cmbkeyboard.jar" target-dir="libs"/>
 
-        <resource-file src="src/android/res/values/cmbkb_strings.xml" target-dir="res/values/cmbkb_strings.xml"/>
+        <source-file src="src/android/res" target-dir="res"/>
         
         <!--res\values\cmbkb_strings.xml 中的cmbkb_publickey字段存放的时SDK使用的密钥-->
         <config-file target="res/values/cmbkb_strings.xml" parent="/*">
