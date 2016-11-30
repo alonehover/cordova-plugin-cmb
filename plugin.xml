@@ -25,6 +25,8 @@
 
         <source-file src="src/android/TffCMB.java" target-dir="src/org/apache/cordova/tffcmb" />
         <source-file src="src/android/libs/cmbkeyboard.jar" target-dir="libs"/>
+
+        <resource-file src="src/android/res" target-dir="res"/>
     </platform>
 
     <platform name="ios">
