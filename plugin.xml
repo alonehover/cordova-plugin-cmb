@@ -31,7 +31,7 @@
         <source-file src="src/android/res/drawable/cmbkb_backspace_dark_icon.png" target-dir="res/drawable"/>
         <source-file src="src/android/res/drawable/cmbkb_backspace_icon.png" target-dir="res/drawable"/>
         <source-file src="src/android/res/drawable/cmbkb_bg.9.png" target-dir="res/drawable"/>
-        <source-file src="src/android/res/drawable/cmbkb_bg_normal.9.png" target-dir="res/drawable"/>
+        <source-file src="src/android/res/drawable/cmbkb_btn_normal.9.png" target-dir="res/drawable"/>
         <source-file src="src/android/res/drawable/cmbkb_btn_pressed.9.png" target-dir="res/drawable"/>
         <source-file src="src/android/res/drawable/cmbkb_key_delete_normal.png" target-dir="res/drawable"/>
         <source-file src="src/android/res/drawable/cmbkb_logo.png" target-dir="res/drawable"/>
