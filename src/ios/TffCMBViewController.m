@@ -79,6 +79,7 @@
 }
 
 - (void)btnClicked {
+    [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
     [self.navigationController dismissViewControllerAnimated:YES completion:^{
         NSLog(@"返回");
     }];
@@ -120,7 +121,7 @@ static BOOL FROM = FALSE;
         secKeyboard.webView = _webView;
 
         UITapGestureRecognizer* myTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
-        [self.view addGestureRecognizer:myTap]; //这个可以加到任何控件上,比如你只想响应WebView，我正好填满整个屏幕
+        [self.view addGestureRecognizer: myTap]; //这个可以加到任何控件上,比如你只想响应WebView，我正好填满整个屏幕
         myTap.delegate = self;
         myTap.cancelsTouchesInView = NO;
         return NO;
@@ -129,6 +130,7 @@ static BOOL FROM = FALSE;
     //
     return YES;
 }
+
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
 {
     return YES;
@@ -138,7 +140,6 @@ static BOOL FROM = FALSE;
     [[CMBWebKeyboard shareInstance] hideKeyboard];
 
 }
-
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
 {
@@ -157,10 +158,6 @@ static BOOL FROM = FALSE;
 {
     //_secKeyboard.webView = _webView;
 }
-
-
-
-
 
 #pragma mark - dealloc
 - (void)dealloc
