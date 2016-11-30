@@ -29,8 +29,8 @@ public class TffCMBActivity extends Activity implements View.OnClickListener {
     private ProgressBar pb;
 
     //post参数
-    private  String trans_id;
-    private String user_id;
+    private  String url;
+    private String jsonRequestData;
 
     private AppClientDao appClientDao =new AppClientDao();
 
@@ -40,8 +40,8 @@ public class TffCMBActivity extends Activity implements View.OnClickListener {
         setContentView(R.layout.activity_tff_cmb);
 
         Intent i = getIntent();
-        trans_id = i.getStringExtra("trans_id");
-        user_id= i.getStringExtra("request_url");
+        url = i.getStringExtra("url");
+        jsonRequestData= i.getStringExtra("jsonRequestData");
 
         //初始化页面
         initView();
@@ -79,9 +79,9 @@ public class TffCMBActivity extends Activity implements View.OnClickListener {
         //设置支持缩放
         webSettings.setBuiltInZoomControls(true);
 
-        String a = "trans_id" + "=" + trans_id + "&" + "user_id" + "=" + user_id;
+        String a = "jsonRequestData" + "=" + jsonRequestData;
         //加载需要显示的网页
-        webView.postUrl("http://blog.alonehover.com/test", EncodingUtils.getBytes(a,"base64"));
+        webView.postUrl(url, EncodingUtils.getBytes(a,"base64"));
 
         webView.setWebViewClient(new WebViewClient(){
             @Override

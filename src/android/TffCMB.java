@@ -47,12 +47,12 @@ public class TffCMB extends CordovaPlugin {
             return false;
         }*/
         JSONObject json =  args.getJSONObject(0);
-        String trans_id = json.getString("trans_id");
-        String request_url = json.getString("request_url");
+        String url = json.getString("url");
+        String jsonRequestData = json.getString("jsonRequestData");
 
         Intent intent=new Intent(this.cordova.getActivity(),TffCMBActivity.class);
-        intent.putExtra("trans_id",trans_id);
-        intent.putExtra("request_url",request_url);
+        intent.putExtra("url",url);
+        intent.putExtra("jsonRequestData",jsonRequestData);
 
 
         //加入将要传输到activity中的参数
