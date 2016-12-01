@@ -17,6 +17,7 @@ import android.widget.ProgressBar;
 
 import com.toursforfun.webapp.R;
 
+import org.apache.http.util.EncodingUtils;
 import cmb.pb.util.CMBKeyboardFunc;
 
 public class TffCMBActivity extends Activity implements View.OnClickListener {
