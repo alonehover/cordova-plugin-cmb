@@ -46,6 +46,7 @@
         <source-file src="src/android/res/drawable-hdpi/cmbkb_list_separator.png" target-dir="res/drawable-hdpi"/>
         
         <source-file src="src/android/res/layout/cmbkeyboard.xml" target-dir="res/layout"/>    
+        <source-file src="src/android/res/layout/activity_tff_cmb.xml" target-dir="res/layout"/>    
 
         <source-file src="src/android/res/values/cmbkb_attrs.xml" target-dir="res/values"/>    
         <source-file src="src/android/res/values/cmbkb_colors.xml" target-dir="res/values"/>    
