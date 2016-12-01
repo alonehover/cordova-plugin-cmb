@@ -4,8 +4,10 @@ import android.app.Activity;
 import android.content.Intent;
 
 import android.os.Bundle;
-import android.os.Handler;
+import android.util.Log;
 import android.view.View;
+import android.webkit.CookieManager;
+import android.webkit.CookieSyncManager;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -13,12 +15,10 @@ import android.webkit.WebViewClient;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 
-
 import com.toursforfun.webapp.R;
 
 import org.apache.http.util.EncodingUtils;
-
-import java.io.IOException;
+import cmb.pb.util.CMBKeyboardFunc;
 
 public class TffCMBActivity extends Activity implements View.OnClickListener {
     private WebView webView;
@@ -32,8 +32,6 @@ public class TffCMBActivity extends Activity implements View.OnClickListener {
     private  String url;
     private String jsonRequestData;
 
-    // private AppClientDao appClientDao =new AppClientDao();
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,28 +40,13 @@ public class TffCMBActivity extends Activity implements View.OnClickListener {
         Intent i = getIntent();
         url = i.getStringExtra("url");
         jsonRequestData= i.getStringExtra("jsonRequestData");
-
+        Log.i("ddd",jsonRequestData);
         //初始化页面
         initView();
-
-      /*  MyThread m = new MyThread();
-        m.start();*/
+        //加载页面
+        postUrl();
 
     }
-
-    private Handler mHandler = new Handler() {
-        public void handleMessage(android.os.Message msg) {
-            switch (msg.what) {
-                case 1:
-
-                    break;
-                case 0:
-                    break;
-
-            }
-        }
-    };
-
 
     private void initView() {
 
@@ -76,47 +59,28 @@ public class TffCMBActivity extends Activity implements View.OnClickListener {
         WebSettings webSettings = webView.getSettings();
         //设置WebView属性，能够执行Javascript脚本
         webSettings.setJavaScriptEnabled(true);
-        //设置支持缩放
-        webSettings.setBuiltInZoomControls(true);
 
-        String a = "jsonRequestData" + "=" + jsonRequestData;
+        webSettings.setSaveFormData(false);
+       /* webSettings.setSavePassword(false);*/
+        //设置支持缩放
+        webSettings.setSupportZoom(false);
         //加载需要显示的网页
-        webView.postUrl(url, EncodingUtils.getBytes(a,"base64"));
+
+
 
         webView.setWebViewClient(new WebViewClient(){
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
-
-                view.loadUrl(url);
-
-                return true;
-            }
-
-          /*  //页面开始加载
-            @Override
-            public void onPageStarted(WebView view, String url, Bitmap favicon) {
-                super.onPageStarted(view, url, favicon);
-                pd.show();//加载的ProgressDialog 显示
-            }
-
-            //加载结束 （其实页面404等等错误的情况也算加载完成）
-            @Override
-            public void onPageFinished(WebView view, String url) {
-                super.onPageFinished(view, url);
-                pd.dismiss();//对话框消失 显示页面
-            }*//**//*
-            @Override
-            public void onProgressChanged(WebView view, int newProgress) {
-                if (newProgress == 100) {
-                    pb.setVisibility(View.INVISIBLE);
-                } else {
-                    if (View.INVISIBLE == bar.getVisibility()) {
-                        pb.setVisibility(View.VISIBLE);
-                    }
-                    pb.setProgress(newProgress);
+                CMBKeyboardFunc kbFunc = new CMBKeyboardFunc(TffCMBActivity.this);
+                if(kbFunc.HandleUrlCall(view, url) == false)
+                {
+                    return super.shouldOverrideUrlLoading(view, url);
                 }
-                super.onProgressChanged(view, newProgress);
-            }*/
+                else {
+                    Log.i("setWeb","1111");
+                    return true;
+                }
+            }
         });
 
         webView.setWebChromeClient(new WebChromeClient() {
@@ -137,25 +101,28 @@ public class TffCMBActivity extends Activity implements View.OnClickListener {
 
     }
 
+    private void postUrl() {
+        try {
+
+            CookieSyncManager.createInstance(TffCMBActivity.this.getApplicationContext());
+            CookieManager.getInstance().removeAllCookie();
+            CookieSyncManager.getInstance().sync();
+        } catch (Exception e) {
+
+        }
+
+        String a = "jsonRequestData=" + jsonRequestData;
+        webView.postUrl(url, EncodingUtils.getBytes(a,"base64"));
+
+    }
+
     @Override
     public void onClick(View v) {
 
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.td:
                 finish();
                 break;
         }
     }
-
-    // class  MyThread extends Thread{
-    //     public void run(){
-    //         try {
-    //             appClientDao.postCMB_1(url, jsonRequestData);
-
-    //         } catch (IOException e) {
-    //             e.printStackTrace();
-    //         }
-    //     }
-    // }
-
 }

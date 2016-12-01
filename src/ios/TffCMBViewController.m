@@ -127,9 +127,6 @@ static BOOL FROM = FALSE;
         return NO;
     }
 
-    NSLog(%"@%", request.URL.host);
-
-    //
     return YES;
 }
 
