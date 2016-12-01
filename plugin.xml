@@ -98,7 +98,7 @@
 	    <header-file src="src/ios/TffCMBViewController.h" />
 	    <source-file src="src/ios/TffCMBViewController.m" />
 
-        <resource-file src="src/ios/SecreteKeyBoard" />
+        <resource-file src="src/ios/SecreteKeyBoard" target="Images.xcassets"/>
 
     </platform>
 
