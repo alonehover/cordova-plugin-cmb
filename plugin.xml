@@ -23,6 +23,14 @@
             </feature>
         </config-file>
 
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+            <service android:name="cmb.pb.cmbsafe.CmbService" android:exported="false"></service>        
+            <activity
+                android:name="cmb.pb.ui.PBKeyboardActivity"
+                android:theme="@style/CmbDialogStyleBottom" >
+            </activity>  
+        </config-file>
+
         <source-file src="src/android/TffCMB.java" target-dir="src/org/apache/cordova/tffcmb" />
         <source-file src="src/android/TffCMBActivity.java" target-dir="src/org/apache/cordova/tffcmb" />
         <source-file src="src/android/libs/cmbkeyboard.jar" target-dir="libs"/>
@@ -81,14 +89,6 @@
 
         <config-file target="*-Info.plist" parent="CMBPublicKey">
             <string>$PRIVATE_KEY</string>
-        </config-file>
-
-        <config-file target="AndroidManifest.xml" parent="/manifest/application">
-            <service android:name="cmb.pb.cmbsafe.CmbService" android:exported="false"></service>        
-            <activity
-                android:name="cmb.pb.ui.PBKeyboardActivity"
-                android:theme="@style/CmbDialogStyleBottom" >
-            </activity>  
         </config-file>
 
         <framework src="src/ios/lib/cmbkeyboard.framework" custom="true" />
