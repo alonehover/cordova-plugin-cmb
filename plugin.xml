@@ -28,7 +28,11 @@
             <activity
                 android:name="cmb.pb.ui.PBKeyboardActivity"
                 android:theme="@style/CmbDialogStyleBottom" >
-            </activity>  
+            </activity>
+            <activity
+                android:name="org.apache.cordova.tffcmb.TffCMBActivity"
+                android:theme="@android:style/Theme.Black.NoTitleBar">
+            </activity>
         </config-file>
 
         <source-file src="src/android/TffCMB.java" target-dir="src/org/apache/cordova/tffcmb" />
