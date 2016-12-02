@@ -17,32 +17,51 @@
         android:orientation="horizontal"
         android:gravity="center_vertical">
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical">
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:gravity="center">
         <ImageView
             android:id="@+id/td"
             android:layout_width="40dp"
             android:layout_height="30dp"
             android:src="@drawable/tff_back_left"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="招行一网通"
-            android:textColor="#242424"
-            android:textSize="16sp"/>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:gravity="center"
+            android:layout_weight="3"
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="招行一网通"
+                android:textColor="#242424"
+                android:textSize="16sp"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent">
+
         </LinearLayout>
 
     </LinearLayout>
-    <ProgressBar
+
+
+        <WebView
+            android:id="@+id/yyy"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <ProgressBar
         android:id="@+id/cmb_pb"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="match_parent"
         android:progressDrawable="@drawable/pb"
         android:layout_height="3dp" />
-    <WebView
-        android:id="@+id/yyy"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+
     </LinearLayout>
 </RelativeLayout>
