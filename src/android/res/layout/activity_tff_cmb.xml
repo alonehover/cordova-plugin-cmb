@@ -13,7 +13,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="#0897FF"
+        android:background="#ffffff"
         android:orientation="horizontal"
         android:gravity="center_vertical">
         <LinearLayout
@@ -28,8 +28,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="招行一卡通"
-            android:textColor="#ffffff"
+            android:text="招行一网通"
+            android:textColor="#242424"
             android:textSize="16sp"/>
         </LinearLayout>
 
