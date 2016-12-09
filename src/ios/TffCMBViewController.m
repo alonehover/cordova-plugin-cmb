@@ -10,15 +10,19 @@
 #import <cmbkeyboard/CMBWebKeyboard.h>
 #import <cmbkeyboard/NSString+Additions.h>
 
+static int gPayStatus = 0;
+
 @interface TffCMBViewController () <UIWebViewDelegate>
 
 @property (nonatomic, strong) UIWebView *webView;
+@property (nonatomic, assign) TffCMBPlugin *lastVC;
 
 @end
 
 @implementation TffCMBViewController
 
     NSMutableURLRequest *_requestUrl;
+
 
 - (id)init
 {
@@ -68,21 +72,36 @@
 
     [self.navigationItem setTitle:@"招行一网通"];
 
-    UIBarButtonItem *barBackBtn=[[UIBarButtonItem alloc]initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(btnClicked)];
+    UIBarButtonItem *barBackBtn=[[UIBarButtonItem alloc]initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(btnClicked)];
     self.navigationItem.leftBarButtonItem = barBackBtn;
 
     _webView = [[UIWebView alloc] init];
     _webView.frame = self.view.frame;
     [self.view addSubview:_webView];
     _webView.delegate = self; // self.wvDelegateColletion;
-
+    
 }
 
+//  返回按钮
 - (void)btnClicked {
     [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
-    [self.navigationController dismissViewControllerAnimated:YES completion:^{
-        NSLog(@"返回");
-    }];
+    if(gPayStatus == 1){
+        [self noticeBack:@"success"];
+    }else if(gPayStatus == 5000){
+        [self noticeBack:@"fail"];
+    }else{
+        [self noticeBack:@"none"];
+    }
+    
+}
+
+// 通知返回
+-(void)noticeBack:(NSString *)message {
+    [[NSNotificationCenter defaultCenter] postNotificationName:PAY_STATUS
+                                                        object:nil
+                                                      userInfo:@{@"text" : message}];
+    
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -105,17 +124,23 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-{
-
-
-}
-
 static BOOL FROM = FALSE;
 - (BOOL)webView:(UIWebView *)_webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
-
+    NSLog(@"toast query %@", request.URL.query);
+    
+    // 如果跳转到成功页面
+    if([request.URL.query isCaseInsensitiveEqualToString:@"MB_EUserP_PayOK"]){
+        gPayStatus = 1;
+    }else if([request.URL.query isCaseInsensitiveEqualToString:@"MB_EUserP_PayError"]){
+        gPayStatus = 5000;
+    }else{
+        gPayStatus = 0;
+    }
+    
+    // 键盘调起
     if ([request.URL.host isCaseInsensitiveEqualToString:@"cmbls"]) {
+        
         CMBWebKeyboard *secKeyboard = [CMBWebKeyboard shareInstance];
         [secKeyboard showKeyboardWithRequest:request];
         secKeyboard.webView = _webView;
@@ -125,6 +150,15 @@ static BOOL FROM = FALSE;
         myTap.delegate = self;
         myTap.cancelsTouchesInView = NO;
         return NO;
+        
+    }
+    // 返回商户
+    else if([request.URL.host isCaseInsensitiveEqualToString:@"back.toursforfun.com"]){
+        
+        gPayStatus = 1;
+        [self noticeBack:@"success"];
+        return NO;
+        
     }
 
     return YES;
@@ -162,6 +196,7 @@ static BOOL FROM = FALSE;
 - (void)dealloc
 {
     [[CMBWebKeyboard shareInstance] hideKeyboard];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 
 }
 

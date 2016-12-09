@@ -4,4 +4,6 @@
 
 - (void) test:(CDVInvokedUrlCommand*)command;
 
+@property(nonatomic,strong)NSString *currentCallbackId;
+
 @end

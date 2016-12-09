@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#define PAY_STATUS @"PayStatusChangeNotification"
 
 @interface TffCMBViewController : UIViewController
 - (void)loadUrl:(NSString*)outerURL setParam:(NSString*)loadParam;
