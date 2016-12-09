@@ -64,7 +64,7 @@ public class TffCMB extends CordovaPlugin {
         switch (requestCode){
             case  0:
                 if(resultCode == 1){
-                    statusCode = "111";
+                    statusCode = "success";
                     callbackContext.success(statusCode);
                 }
                 break;

@@ -143,7 +143,7 @@ public class TffCMBActivity extends Activity implements View.OnClickListener {
         Intent i;
         switch (v.getId()) {
             case R.id.td:
-                if(filterUrl.contains("http://61.144.248.29:801/netpayment/BaseHttp.dll?MB_EUserP_PayOK")){
+                if(filterUrl.contains("MB_EUserP_PayOK")){
                     i = new Intent();
                     setResult(1,i);
                     finish();
