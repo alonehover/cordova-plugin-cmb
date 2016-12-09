@@ -3,6 +3,7 @@ package org.apache.cordova.tffcmb;
 import android.app.Activity;
 import android.content.Intent;
 
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -20,6 +21,8 @@ import com.toursforfun.webapp.R;
 import org.apache.http.util.EncodingUtils;
 import cmb.pb.util.CMBKeyboardFunc;
 
+import static android.webkit.WebSettings.LOAD_NO_CACHE;
+
 public class TffCMBActivity extends Activity implements View.OnClickListener {
     private WebView webView;
 
@@ -32,6 +35,8 @@ public class TffCMBActivity extends Activity implements View.OnClickListener {
     private  String url;
     private String jsonRequestData;
 
+    private String filterUrl;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +44,7 @@ public class TffCMBActivity extends Activity implements View.OnClickListener {
 
         Intent i = getIntent();
         url = i.getStringExtra("url");
+
         jsonRequestData= i.getStringExtra("jsonRequestData");
         Log.i("ddd",jsonRequestData);
         //初始化页面
@@ -57,31 +63,49 @@ public class TffCMBActivity extends Activity implements View.OnClickListener {
 
         webView = (WebView) findViewById(R.id.yyy);
         WebSettings webSettings = webView.getSettings();
+
         //设置WebView属性，能够执行Javascript脚本
         webSettings.setJavaScriptEnabled(true);
-
+        webSettings.setCacheMode(webSettings.LOAD_NO_CACHE);
         webSettings.setSaveFormData(false);
-       /* webSettings.setSavePassword(false);*/
         //设置支持缩放
         webSettings.setSupportZoom(false);
-        //加载需要显示的网页
-
 
 
         webView.setWebViewClient(new WebViewClient(){
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                Intent i;
+
+                Log.i("cmb1",url);
                 CMBKeyboardFunc kbFunc = new CMBKeyboardFunc(TffCMBActivity.this);
                 if(kbFunc.HandleUrlCall(view, url) == false)
                 {
-                    return super.shouldOverrideUrlLoading(view, url);
-                }
-                else {
-                    Log.i("setWeb","1111");
+                    if(url.contains("back.toursforfun.com")){
+                        i = new Intent();
+                        setResult(1,i);
+                        finish();
+                        return false;
+                    }else {
+                        return super.shouldOverrideUrlLoading(view, url);
+                    }
+                }else {
                     return true;
                 }
             }
+
+            @Override
+            public void onPageStarted(WebView view, String url, Bitmap bitmap) {
+                Log.i("onPageStarted",url);
+            }
+
+            public void onPageFinished(WebView view, String url) {
+                filterUrl = url;
+                Log.i("onPageFinished",url);
+            }
+
         });
+
 
         webView.setWebChromeClient(new WebChromeClient() {
             @Override
@@ -101,6 +125,7 @@ public class TffCMBActivity extends Activity implements View.OnClickListener {
 
     }
 
+    @SuppressWarnings("deprecation")
     private void postUrl() {
         try {
 
@@ -114,14 +139,21 @@ public class TffCMBActivity extends Activity implements View.OnClickListener {
         String a = "jsonRequestData=" + jsonRequestData;
         webView.postUrl(url, EncodingUtils.getBytes(a,"base64"));
 
+
     }
 
     @Override
     public void onClick(View v) {
-
+        Intent i;
         switch (v.getId()) {
             case R.id.td:
-                finish();
+                if(filterUrl.contains("http://61.144.248.29:801/netpayment/BaseHttp.dll?MB_EUserP_PayOK")){
+                    i = new Intent();
+                    setResult(1,i);
+                    finish();
+                }else{
+                    finish();
+                }
                 break;
         }
     }

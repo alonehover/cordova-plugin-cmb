@@ -16,7 +16,7 @@ public class TffCMB extends CordovaPlugin {
     public static final String TAG = "TffConfig";
     private CordovaWebView webView;
     private String channel = "";   //app发布渠道
-
+    private CallbackContext callbackContext;
 
     /**
      * Sets the context of the Command. This can then be used to do things like
@@ -40,15 +40,12 @@ public class TffCMB extends CordovaPlugin {
      */
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
 
-        /*if ("test".equals(action)) {
-            *//*this.test(callbackContext);*//*
-        }
-        else {
-            return false;
-        }*/
         JSONObject json =  args.getJSONObject(0);
         String url = json.getString("url");
         String jsonRequestData = json.getString("jsonRequestData");
+
+        //得到callbackContext对象
+        this.callbackContext =callbackContext;
 
         Intent intent=new Intent(this.cordova.getActivity(),TffCMBActivity.class);
         intent.putExtra("url",url);
@@ -61,14 +58,19 @@ public class TffCMB extends CordovaPlugin {
         return true;
     }
 
- /*   public void test(CallbackContext callbackContext) {
-        Log.i("HHH","kkk");
-
-    }*/
-
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent intent){
-
+        String statusCode;
+        switch (requestCode){
+            case  0:
+                if(resultCode == 1){
+                    statusCode = "111";
+                    callbackContext.success(statusCode);
+                }
+                break;
+            default:
+                break;
+        }
     }
 
 }
