@@ -46,7 +46,6 @@ public class TffCMBActivity extends Activity implements View.OnClickListener {
         url = i.getStringExtra("url");
 
         jsonRequestData= i.getStringExtra("jsonRequestData");
-        Log.i("ddd",jsonRequestData);
         //初始化页面
         initView();
         //加载页面
@@ -77,7 +76,6 @@ public class TffCMBActivity extends Activity implements View.OnClickListener {
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 Intent i;
 
-                Log.i("cmb1",url);
                 CMBKeyboardFunc kbFunc = new CMBKeyboardFunc(TffCMBActivity.this);
                 if(kbFunc.HandleUrlCall(view, url) == false)
                 {
@@ -96,12 +94,10 @@ public class TffCMBActivity extends Activity implements View.OnClickListener {
 
             @Override
             public void onPageStarted(WebView view, String url, Bitmap bitmap) {
-                Log.i("onPageStarted",url);
             }
 
             public void onPageFinished(WebView view, String url) {
                 filterUrl = url;
-                Log.i("onPageFinished",url);
             }
 
         });
