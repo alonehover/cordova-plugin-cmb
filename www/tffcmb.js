@@ -1,7 +1,7 @@
 var exec = require('cordova/exec');
 
 module.exports = {
-    pay : function(testParams, success, error) {
-        exec(success, error, "TffCMB", "pay", [testParams]);
+    pay : function(params, success, error) {
+        exec(success, error, "TffCMB", "pay", [params]);
     }
 };
