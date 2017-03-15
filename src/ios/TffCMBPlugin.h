@@ -2,7 +2,7 @@
 
 @interface TffCMBPlugin : CDVPlugin
 
-- (void) test:(CDVInvokedUrlCommand*)command;
+- (void) pay:(CDVInvokedUrlCommand*)command;
 
 @property(nonatomic,strong)NSString *currentCallbackId;
 
