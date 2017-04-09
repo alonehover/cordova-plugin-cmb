@@ -15,13 +15,6 @@ android 还需要修改 res -> values -> cmbkb_strings.xml 里的 cmbkb_publicke
 #### use
 
 ````
-
-window.TffCMB.pay({
-  url: [招行一网通h5支付页面地址],
-  jsonRequestData: [需要传的参数]
-})
-
-
 window.TffCMB.pay({
     url: [招行一网通h5支付页面地址, 字符串],
     jsonRequestData: [需要传的参数, json对象]
