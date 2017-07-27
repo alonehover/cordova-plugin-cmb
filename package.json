@@ -1,0 +1,25 @@
+{
+  "name": "tff-plugin-cmb",
+  "version": "1.0.0",
+  "description": "cordova plugin for cmb pay",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alonehover/cordova-plugin-cmb.git"
+  },
+  "keywords": [
+    "cordova",
+    "plugin",
+    "cmb",
+    "pay"
+  ],
+  "author": "alonehover",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alonehover/cordova-plugin-cmb/issues"
+  },
+  "homepage": "https://github.com/alonehover/cordova-plugin-cmb#readme"
+}
